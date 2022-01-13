@@ -9,13 +9,13 @@ class Hero:
         self.damage= damage
         self.level= level
         self.coins= coins   
-        #get an obj of hero, and return with the new hp is the obj . heal as needed.
+        #get an obj of hero, and return with the new hp is the obj .heal as needed.
     def heal(self,hero):
         hp = 2 
         hp+=hp*0.5
         hero.hp = hero.hp +hp
         return hero
-
+        #need to work from here.
     def level_up(self,hero):
         global max_add_hp
         if((hero.coins*1.2) > hero.level):
@@ -28,7 +28,6 @@ class Hero:
             hero.coins=hero.coins*0.5
         hero.level =hero.level +1 
         return hero
-
 
     def hero_attack(self, monster :Monster):
         #hero reduce_health to the monster. hero_attack & reduce_health are connected .
