@@ -1,31 +1,35 @@
 from monster import Monster
 
-
 global max_add_hp
 max_add_hp=10.0
 class Hero:
-    def __init__(self,hp=10.0,level=1.0,coins=0.0,damage=2.0):
+    def __init__(self,name='Bruce Wayne',hp=10.0,level=1,coins=0.0,damage=2.0):#init as needed.
+        self.name = 'Bruce Wayne'
         self.hp= hp
         self.damage= damage
         self.level= level
         self.coins= coins   
-    def constructor_hero():
-        print("")
-    def heal(hp):
+        #get an obj of hero, and return with the new hp is the obj . heal as needed.
+    def heal(self,hero):
+        hp = 2 
         hp+=hp*0.5
-        return hp
-               # 10,  1,     4,   2    
-    def level_up(hp,level,coins,damage):
+        hero.hp = hero.hp +hp
+        return hero
+
+    def level_up(self,hero):
         global max_add_hp
-        if((coins*1.2) > level):
+        if((hero.coins*1.2) > hero.level):
             m=0.3
-            level=level+1
+            hero.level=hero.level+1
             max_add_hp=(max_add_hp*m)+max_add_hp # (10*0.3) +10 -> 13.3 ->max_add_hp
-            damage=(damage*m)+damage # (2 * 0.3)+2  -> 2.6  ;>damage
+            hero.damage=(hero.damage*m)+hero.damage # (2 * 0.3)+2  -> 2.6  ;>damage
             #restart hp avery level for the Hero.
-            hp=max_add_hp                        
-            coins=coins*0.5
-            return [hp,level,coins,damage]#return list of new values.
+            hero.hp=max_add_hp                        
+            hero.coins=hero.coins*0.5
+        hero.level =hero.level +1 
+        return hero
+
+
     def hero_attack(self, monster :Monster):
         #hero reduce_health to the monster. hero_attack & reduce_health are connected .
         monster.reduce_health_monster(self)
