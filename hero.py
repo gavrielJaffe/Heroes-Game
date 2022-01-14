@@ -38,11 +38,12 @@ class Hero:
         return monster
 
         #need to work from here.
-    def defend(monster,hero):
+    def defend(self,monster):
         # reduce_health but not as much like regular.
-        hero.hp= hero.hp-(monster.damage*0.2)
+        print(monster.damage) 
+        self.hp= self.hp-(monster.damage*0.2)
         #10       10    - (10*0.2=>2)
-        print ("hero's hp after the attack is :",hero.hp)  
+        print ("hero's hp after the attack is :",self.hp)  
 
     def reduce_health(monster,hero,answer):
         #reduce health to the hero ,

@@ -34,8 +34,8 @@ def print_info_hero(obj):
     print(f"Hero damage : {obj.damage}")
     print(f"Hero coins : {obj.coins}")
     print(f"Hero hp : {obj.hp}")
-    hero1.coins =5
-    hero1.hp =5
+    # hero1.coins =5
+    # hero1.hp =5
     print("**********************************************************************************************")
     print("after")
     hero1.level_up(hero1)
@@ -53,8 +53,15 @@ def print_info_monster(obj):
    
 
 #test for the hero_attack_monster function.
-print_info_hero(hero1)
-print_info_monster(monster1)
+# print_info_hero(hero1)
+# print_info_monster(monster1)
+# hero1.hero_attack_the_monster(monster1)
+# print_info_monster(monster1)
+        # end
+
+
+#test for the hero_attack_monster function.
 hero1.hero_attack_the_monster(monster1)
-print_info_monster(monster1)
-                
+print_info_hero(hero1)
+hero1.defend(monster1)
+print_info_hero(hero1)
