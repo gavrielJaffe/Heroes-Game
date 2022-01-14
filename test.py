@@ -11,13 +11,24 @@ monster1 = Monster("BlaBla", 10, 5,1)
 #end
 
 #test for level_up function.
-print(hero1.level)
+
+
+print("before")
+print(f"Hero level : {hero1.level}")
+print(f"Hero damage : {hero1.damage}")
+print(f"Hero coins : {hero1.coins}")
+print(f"Hero hp : {hero1.hp}")
+hero1.coins =5
+hero1.hp =5
+print("**********************************************************************************************")
+print("after")
 hero1.level_up(hero1)
 print(f"Hero level: {hero1.level}")
+print(f"Hero damage: {hero1.damage}")
+print(f"Hero coins: {hero1.coins}")
+print(f"Hero hp: {hero1.hp}")
 
-
-
-
+#end
 
 
 # print(hero1.heal)
