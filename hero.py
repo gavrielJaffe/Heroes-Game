@@ -15,31 +15,35 @@ class Hero:
         hp+=hp*0.5
         hero.hp = hero.hp +hp
         return hero
-        #need to work from here.
+        
     def level_up(self,hero):
         global max_add_hp
         if((hero.coins*1.2) > hero.level):
             m=0.3
-            hero.level=hero.level+1
             max_add_hp=(max_add_hp*m)+max_add_hp # (10*0.3) +10 -> 13.3 ->max_add_hp
             hero.damage=(hero.damage*m)+hero.damage # (2 * 0.3)+2  -> 2.6  ;>damage
             #restart hp avery level for the Hero.
             hero.hp=max_add_hp                        
             hero.coins=hero.coins*0.5
-        hero.level =hero.level +1 
+            hero.level =hero.level +1 
         return hero
-
-    def hero_attack(self, monster :Monster):
-        #hero reduce_health to the monster. hero_attack & reduce_health are connected .
-        monster.reduce_health_monster(self)
+  
+    def hero_attack_the_monster(self, monster :Monster):
+        #hero reduce_health to the monster .
+        monster=monster.reduce_health_monster(self)
+        # print(f"this is {monster}")
         if(monster.hp<=0):
-            coins=self.coins + self.level
-        return coins
+            self.coins=self.coins + self.level
+            # print(f"hero coins $$$$$$$$: {self.coins}")
+        return monster
+
+        #need to work from here.
     def defend(monster,hero):
         # reduce_health but not as much like regular.
         hero.hp= hero.hp-(monster.damage*0.2)
         #10       10    - (10*0.2=>2)
-        print ("hero's hp after the attack is :",hero.hp)   
+        print ("hero's hp after the attack is :",hero.hp)  
+
     def reduce_health(monster,hero,answer):
         #reduce health to the hero ,
         if(answer==4):
@@ -47,6 +51,7 @@ class Hero:
         hero.hp=monster.damage-hero.hp
         #return hero's life back 
         return print ("hero's hp after the attack is :",hero.hp)
+
     def choose_action(self,moster):
         answer=input("1:attack,2:lever up,3:heal ,4:defend \n")
         while not('1'<=answer<='4'):
@@ -54,8 +59,8 @@ class Hero:
         self.coins=self.coins+1
         #goes to right place,1:attack,2:lever up,3:heal ,4:defend 
         if (answer==1):
-            self.hero_attack(moster)
-            #the hero_attack function is not good written.
+            self.hero_attack_the_monster(moster)
+            #the hero_attack_the_monster function is not good written.
         elif(answer==2):
             hero.level_up(hero.hp,hero.level,hero.coins,hero.damage)
         elif(answer==3):
@@ -69,5 +74,3 @@ class Hero:
         print("hero.damage:",hero.damage)
         return moster,hero ,answer
         #need to send to answer to the attack function in monster.
-
-

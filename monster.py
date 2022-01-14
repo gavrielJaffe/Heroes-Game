@@ -22,10 +22,14 @@ class Monster:
        
     def reduce_health_monster(self,hero):
         #reduce health to monster.
-        self.hp = hero.damage - self.hp
+        # print(f"monster h/p##: {self.hp}")
+        # hero.damage =30
+        self.hp = self.hp -hero.damage
+        # print(f"monster hp##: {self.hp}")
         if (self.hp<=0):
             self.hp=0
+            # print(f"monster hp##: {self.hp}")
             #do we need to create a new monster hear ? 
-        return self.hp
+        return self
 
     
