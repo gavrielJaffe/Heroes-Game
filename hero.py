@@ -14,7 +14,7 @@ class Hero:
     def heal(self,hero):
         hp = 2 
         hp+=hp*0.5
-        hero.hp = hero.hp +hp
+        hero.hp = hero.hp + hp
         return hero
         
     def level_up(self,hero):
@@ -61,9 +61,9 @@ class Hero:
             self.hero_attack_the_monster(moster)
             #the hero_attack_the_monster function is not good written.
         elif(answer==2):
-            hero.level_up(hero.hp,hero.level,hero.coins,hero.damage)
+            hero.level_up(hero)
         elif(answer==3):
-            hero.heal(hero.hp)
+            hero.heal(hero)
         elif(answer==4):
             hero.shield = True
 
