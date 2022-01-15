@@ -1,29 +1,28 @@
 import random
 class Monster:
-    def __init__(self,name,hp,damage,level):
+    def __init__(self,hp=2,damage=2,level=1,name ='bogi monnster'):
         self.name=name
         self.hp=hp
         self.damage= damage
         self.level=level
 
-    def constructor_monster(self,name,hero):
+    def constructor_monster(self,hero):
         # get level of monster.
-        #  rnd=monster.level
-        rnd=hero.level
-        rnd=random(rnd (-1) ,rnd (+1))
-        monster.monster_damage=monster.level*(0.30)
-        return monster.damage
+        rnd_number=random.randint(-1,1)
+        # print(f"rnd_number : {rnd_number}")
+        self.level = hero.level + rnd_number
+        self.hp=self.level
+        self.damage=self.level
+        return self
         
-    def attack(self,hero,monster):
-        print("got inside of attack in 20")  # reduce health to the hero.
-        #need to get answer from choose.
-        hero.reduce_health(self,answer)
-        
+        #monster attack the hero. using the hero function to reduce the health.
+    def attack(self,hero):
+        hero.reduce_health(self)        
        
+       #did must of it.
     def reduce_health_monster(self,hero):
         #reduce health to monster.
         # print(f"monster h/p##: {self.hp}")
-        # hero.damage =30
         self.hp = self.hp -hero.damage
         # print(f"monster hp##: {self.hp}")
         if (self.hp<=0):

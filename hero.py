@@ -3,12 +3,13 @@ from monster import Monster
 global max_add_hp
 max_add_hp=10.0
 class Hero:
-    def __init__(self,name='Bruce Wayne',hp=10.0,level=1,coins=0.0,damage=2.0):#init as needed.
+    def __init__(self,name='Bruce Wayne',hp=10.0,level=1,coins=0.0,damage=2.0,shield=False):#init as needed.
         self.name = 'Bruce Wayne'
         self.hp= hp
         self.damage= damage
         self.level= level
-        self.coins= coins   
+        self.coins= coins 
+        self.shield=shield  
         #get an obj of hero, and return with the new hp is the obj .heal as needed.
     def heal(self,hero):
         hp = 2 
@@ -40,18 +41,15 @@ class Hero:
         #need to work from here.
     def defend(self,monster):
         # reduce_health but not as much like regular.
-        print(monster.damage) 
         self.hp= self.hp-(monster.damage*0.2)
-        #10       10    - (10*0.2=>2)
-        print ("hero's hp after the attack is :",self.hp)  
 
-    def reduce_health(monster,hero,answer):
-        #reduce health to the hero ,
-        if(answer==4):
-            return hero.defend(monster,hero)
-        hero.hp=monster.damage-hero.hp
-        #return hero's life back 
-        return print ("hero's hp after the attack is :",hero.hp)
+    #reduce_health for our hero.by the damage of monster.100 % or just 20 % -done
+    def reduce_health(hero,monster):
+        if(hero.shield == True): #need to make an action.
+            hero.defend(monster)
+            return hero ,monster
+        hero.hp = hero.hp - monster.damage
+        return hero , monster
 
     def choose_action(self,moster):
         answer=input("1:attack,2:lever up,3:heal ,4:defend \n")
@@ -67,7 +65,7 @@ class Hero:
         elif(answer==3):
             hero.heal(hero.hp)
         elif(answer==4):
-            hero.defend(moster,hero)
+            hero.shield = True
 
         print("hero.hp:",hero.hp)
         print("hero.coins:",hero.coins)
