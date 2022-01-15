@@ -38,7 +38,6 @@ class Hero:
             # print(f"hero coins $$$$$$$$: {self.coins}")
         return monster
 
-        #need to work from here.
     def defend(self,monster):
         # reduce_health but not as much like regular.
         self.hp= self.hp-(monster.damage*0.2)
@@ -51,19 +50,21 @@ class Hero:
         hero.hp = hero.hp - monster.damage
         return hero , monster
 
-    def choose_action(self,moster):
+    def choose_action(self,hero,monster):
+        print(f"heros conins$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${self.coins}")
         answer=input("1:attack,2:lever up,3:heal ,4:defend \n")
         while not('1'<=answer<='4'):
             answer=input("1:attack,2:lever up,3:heal ,4:defend \n")
-        self.coins=self.coins+1
+        self.coins= self.coins + 1
+        print(f"heros conins$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${self.coins}")
         #goes to right place,1:attack,2:lever up,3:heal ,4:defend 
         if (answer==1):
-            self.hero_attack_the_monster(moster)
+            self.hero_attack_the_monster(monster)
             #the hero_attack_the_monster function is not good written.
         elif(answer==2):
-            hero.level_up(hero)
+            self.level_up(self)
         elif(answer==3):
-            hero.heal(hero)
+            self.heal(hero)
         elif(answer==4):
             hero.shield = True
 
@@ -71,5 +72,5 @@ class Hero:
         print("hero.coins:",hero.coins)
         print("hero.level:",hero.level)
         print("hero.damage:",hero.damage)
-        return moster,hero ,answer
+        return monster,hero 
         #need to send to answer to the attack function in monster.

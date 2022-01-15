@@ -66,8 +66,25 @@ def print_info_monster(obj):
 
 
 #test for the attack function.
-print_info_monster(monster1)
-print_info_hero(hero1)
-monster1.attack(hero1)
-print_info_hero(hero1)
+# print_info_monster(monster1)
+# print_info_hero(hero1)
+# monster1.attack(hero1)
+# print_info_hero(hero1)
+# print_info_monster(monster1)
+
+
+
+#test for the attack function.
+# print_info_monster(monster1)
+# print_info_hero(hero1)
+# monster1.attack(hero1)
+# print_info_hero(hero1)
+# print_info_monster(monster1)
+
+
+#test for the choose action function ,need some work
+# print_info_hero(hero1)
+# print_info_monster(monster1)
+# hero1.choose_action(hero1,monster1)
+# print_info_hero(hero1)
 # print_info_monster(monster1)
