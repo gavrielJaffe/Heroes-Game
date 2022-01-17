@@ -17,6 +17,7 @@ class Hero:
         hero.hp = hero.hp + hp
         return hero
         
+        #get level up 
     def level_up(self,hero):
         global max_add_hp
         if((hero.coins*1.2) > hero.level):
@@ -29,8 +30,8 @@ class Hero:
             hero.level =hero.level +1 
         return hero
   
-    def hero_attack_the_monster(self, monster :Monster):
         #hero reduce_health to the monster .
+    def hero_attack_the_monster(self, monster :Monster):
         monster=monster.reduce_health_monster(self)
         # print(f"this is {monster}")
         if(monster.hp<=0):
@@ -64,6 +65,4 @@ class Hero:
             self.heal(self)
         elif(answer == '4'):
             self.shield = True
-
         return monster,self
-        #need to send to answer to the attack function in monster.

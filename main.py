@@ -1,22 +1,40 @@
 from hero import Hero
 from monster import Monster
+
+def print_info_hero(obj):
+    #test for level_up function.
+    print("**********************************************************************************************")
+    print(f"Hero level : {obj.level}")
+    print(f"Hero damage : {obj.damage}")
+    print(f"Hero coins : {obj.coins}")
+    print(f"Hero hp : {obj.hp}")
+    print(f"Hero shield: {obj.shield}")
+    print("**********************************************************************************************")
+    
+def print_info_monster(obj):
+    print("**********************************************************************************************")
+    print(f"monster level : {obj.level}")
+    print(f"monster damage :{obj.damage}")
+    print(f"monster hp : {obj.hp}")
+    print("**********************************************************************************************")
+   
+
 def main():
     cunt_dead=0
-    monster_reset=5
-    print("hi")#hp=10.0,level=1.0,coins=0.0,damage=2.0
-    obj_hero=Hero(10.0,1.0,0,2.0)
-    obj_monster=Monster(monster_reset,monster_reset,monster_reset,"bogis")
-    print(obj_hero,"obj hero")
-    #as long the hero is alive the game in on.
-    while( obj_hero.hp!= 0 ):
-        # a, b, c = obj_hero.choose_action(obj_monster)
-        obj_hero.choose_action(obj_monster)
-        if (obj_monster.hp<0):
-            cunt_dead=cunt_dead+1
+    hero=Hero()
+    monster=Monster()
+    #as long the hero is alive the game in on. need to make a new monster when monster hp = 0
+    while( hero.hp!= 0 ):
+        print_info_monster(monster)
+        hero.choose_action(monster)
+        print_info_hero(hero)
+        print_info_monster(monster)
+    if (monster.hp<0):
+        cunt_dead=cunt_dead+1
             #creating a new moster, stronger.
-            obj_monster=Monster(monster_reset+cunt_dead,monster_reset+cunt_dead,monster_reset+cunt_dead)
+        monster=Monster()
         #attack the hero.
-        obj_monster.attack(obj_hero)
+        monster.attack(hero)
     print("you lost in the game")
 if(__name__=="__main__"):
     main()
