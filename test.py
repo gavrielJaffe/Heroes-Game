@@ -11,7 +11,7 @@ monster1 = Monster()
 #end
 
 #test for level_up function.
-# print("before")
+print("before")
 # print(f"Hero level : {hero1.level}")
 # print(f"Hero damage : {hero1.damage}")
 # print(f"Hero coins : {hero1.coins}")
@@ -29,7 +29,6 @@ monster1 = Monster()
 
 def print_info_hero(obj):
     #test for level_up function.
-    print("before")
     print(f"Hero level : {obj.level}")
     print(f"Hero damage : {obj.damage}")
     print(f"Hero coins : {obj.coins}")
@@ -37,7 +36,6 @@ def print_info_hero(obj):
     print(f"Hero shield: {hero1.shield}")
     
 def print_info_monster(obj):
-    print("before")
     print(f"monster level : {obj.level}")
     print(f"monster damage :{obj.damage}")
     print(f"monster hp : {obj.hp}")
@@ -83,8 +81,10 @@ def print_info_monster(obj):
 
 
 #test for the choose action function ,need some work
-# print_info_hero(hero1)
+print_info_hero(hero1)
+hero1.choose_action(monster1)
+print_info_hero(hero1)
 # print_info_monster(monster1)
-# hero1.choose_action(hero1,monster1)
-# print_info_hero(hero1)
 # print_info_monster(monster1)
+#end
+

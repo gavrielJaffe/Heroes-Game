@@ -50,27 +50,20 @@ class Hero:
         hero.hp = hero.hp - monster.damage
         return hero , monster
 
-    def choose_action(self,hero,monster):
-        print(f"heros conins$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${self.coins}")
+    def choose_action(self,monster):
         answer=input("1:attack,2:lever up,3:heal ,4:defend \n")
         while not('1'<=answer<='4'):
             answer=input("1:attack,2:lever up,3:heal ,4:defend \n")
-        self.coins= self.coins + 1
-        print(f"heros conins$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${self.coins}")
+        self.coins= self.coins + 1# get coins aver turn.
         #goes to right place,1:attack,2:lever up,3:heal ,4:defend 
-        if (answer==1):
+        if (answer=='1'):
             self.hero_attack_the_monster(monster)
-            #the hero_attack_the_monster function is not good written.
-        elif(answer==2):
+        elif(answer =='2'):
             self.level_up(self)
-        elif(answer==3):
-            self.heal(hero)
-        elif(answer==4):
-            hero.shield = True
+        elif(answer =='3'):
+            self.heal(self)
+        elif(answer == '4'):
+            self.shield = True
 
-        print("hero.hp:",hero.hp)
-        print("hero.coins:",hero.coins)
-        print("hero.level:",hero.level)
-        print("hero.damage:",hero.damage)
-        return monster,hero 
+        return monster,self
         #need to send to answer to the attack function in monster.
