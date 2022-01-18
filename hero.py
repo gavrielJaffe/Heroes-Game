@@ -34,8 +34,8 @@ class Hero:
     def hero_attack_the_monster(self, monster :Monster):
         monster=monster.reduce_health_monster(self)
         # print(f"this is {monster}")
-        if(monster.hp<=0):
-            self.coins=self.coins + self.level
+        # if(monster.hp<=0):
+            # self.coins= self.coins + 2
             # print(f"hero coins $$$$$$$$: {self.coins}")
         return monster
 
@@ -52,14 +52,11 @@ class Hero:
         return hero , monster
 
     def choose_action(self,monster):
-        
-        
-
         answer=input("1:attack,2:lever up,3:heal ,4:defend \n")
+        self.coins= self.coins + 1# get coins aver turn.
         
         while not('1'<=answer<='4'):
             answer=input("1:attack,2:lever up,3:heal ,4:defend \n")
-            self.coins= self.coins + 1# get coins aver turn.
         #goes to right place,1:attack,2:lever up,3:heal ,4:defend 
         if (answer=='1'):
             self.hero_attack_the_monster(monster)

@@ -24,15 +24,18 @@ def main():
     monster=Monster()
     #as long the hero is alive the game in on. after attack reduce health but adding conins to hero.
     while(hero.hp >= 0):
-        hero.choose_action(monster)
         print_info_hero(hero)
         print_info_monster(monster)
+        hero.choose_action(monster)
             #creating a new moster, stronger.
-        # if (monster.hp < 0):
-        #     print("we got here")
-        #     monster=Monster()
+        if (monster.hp <= 0):
+            print("we got here")
+            monster=Monster()
+            monster.constructor_monster(hero)
         # #attack the hero.
         monster.attack(hero)
+        print_info_hero(hero)
+        print_info_monster(monster)
     print("you lost in the game")
 if(__name__=="__main__"):
     main()
