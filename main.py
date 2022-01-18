@@ -20,20 +20,18 @@ def print_info_monster(obj):
    
 
 def main():
-    cunt_dead=0
-    monster_reset=5
     hero=Hero()
     monster=Monster()
-    #as long the hero is alive the game in on. after attack reduce healt but adding conins to hero.
-    while( hero.hp!= 0 ):
+    #as long the hero is alive the game in on. after attack reduce health but adding conins to hero.
+    while(hero.hp >= 0):
         hero.choose_action(monster)
         print_info_hero(hero)
         print_info_monster(monster)
-        if (monster.hp<0):
-            cunt_dead=cunt_dead+1
             #creating a new moster, stronger.
-            monster=Monster()
-        #attack the hero.
+        # if (monster.hp < 0):
+        #     print("we got here")
+        #     monster=Monster()
+        # #attack the hero.
         monster.attack(hero)
     print("you lost in the game")
 if(__name__=="__main__"):
